@@ -10,7 +10,8 @@ const Signup = props => {
   const [signupForm, setSignupForm] = useState({
     email: '',
     username: '',
-    password: ''
+    password: '',
+    avatar: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
   });
 
   // Controlled form functions
@@ -31,8 +32,9 @@ const Signup = props => {
 
   // Component code
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Signup Page</h1>
+    <form className="signuplogin"
+    onSubmit={handleSubmit}>
+      <h1>Signup For An Account</h1>
       <input
         type="text"
         name="email"

@@ -56,8 +56,9 @@ const fetchOriginalData = async  () => {
                 props.search(query)
             }
              }>
-                <h1>{name}</h1>
-                <button 
+            <h2>{name}</h2>
+                <button
+                className="searchButtonSide" 
                 onClick={handleClick}>
                     x
                 </button>

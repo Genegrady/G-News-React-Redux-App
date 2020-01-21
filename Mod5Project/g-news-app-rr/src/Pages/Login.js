@@ -27,7 +27,7 @@ const LoginPage = props => {
 
   // Component code
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="signuplogin">
       <h1>Login Page</h1>
       <input
         type="text"
@@ -37,6 +37,7 @@ const LoginPage = props => {
         placeholder="Username"
       />
       <input
+        className="input"
         type="password"
         name="password"
         value={password}

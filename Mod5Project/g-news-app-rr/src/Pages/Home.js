@@ -7,7 +7,7 @@ import { Fragment, useState, useEffect } from 'react';
 // import { useDispatch } from 'react-redux';
 import axios from 'axios'
 import { EVERYTHING_API_URL,QUERY, BASE_API_URL, BASE_URL, API_KEY } from '../redux/actions';
-import Profile from './Profile'
+
 // import swal from 'sweetalert';
 
 
@@ -42,6 +42,7 @@ useEffect(() => {
 }, [user])
 
 
+
 console.log(query)
 
 
@@ -67,13 +68,13 @@ console.log(setQuery)
           
              
             <Fragment>
-               
+                {/* <Profile {...userState}{...state}/> */}
                 {/* <div>{text}</div> */}
                 < SearchContainer className="search_container" {...state } {...query} 
                 {...userState} 
                 />
                 {/* < NewsList className="news_container" {...state}/> */}
-                <Profile {...userState}{...state}/>
+               
             </Fragment>
         )
     

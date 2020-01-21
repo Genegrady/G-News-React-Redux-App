@@ -63,9 +63,12 @@ console.log(queryRender)
   const callSearchFunction = (e) => {
     e.preventDefault();
     // const { history } = props
-    props.search(query);
+    if(query !== null){props.search(query);
     postData();
-    setQuery("")
+    setQuery("")}
+    else{
+      swal("Search Bar is empty", "Please Enter Something", "error")
+    }
   }
 
 console.log(query)

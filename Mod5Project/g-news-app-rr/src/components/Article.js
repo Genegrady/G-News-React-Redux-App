@@ -5,6 +5,8 @@ import Linkify from 'react-linkify';
 import { EVERYTHING_API_URL,QUERY, BASE_API_URL, BASE_URL, API_KEY } from '../redux/actions';
 import axios from 'axios'
 import swal from 'sweetalert'
+import 'react-sharingbuttons/dist/main.css'
+import { Facebook, Twitter, Email } from 'react-sharingbuttons'
 
 const Article = (props) => {
   // console.log(props.article)
@@ -32,10 +34,13 @@ const Article = (props) => {
 
 }
 
-console.log(url)
+console.log(props.user_id)
   
     return (
             <div className="card">
+                <button
+                className="favorite_button"
+                onClick={postData}><img src='https://i.pinimg.com/originals/3d/65/db/3d65dbcecc72931a3b7a45a70d291892.png' alt ="star"/></button>
                 <img src={urlToImage} alt={url}/>
                 <p>Author: {author}</p>
                 <p>Published: {publishedAt}</p>
@@ -46,15 +51,16 @@ console.log(url)
                
                 <h3>{description}</h3>
                 <p>{content}</p>
-                <button
-                onClick={postData}><img src='http://imgur.com/I0EwG.png' alt ="star"/></button>
+                <div className="link_share">
+                    <Email url={url} subject="nice subject" />
+                    <Facebook url={url} />
+                     <Twitter url={url} shareText={"Check This Out"} />
+                </div>
             </div>
       
     )
 }
 
-Article.propTypes = {
-    
-}
+
 
 export default Article
