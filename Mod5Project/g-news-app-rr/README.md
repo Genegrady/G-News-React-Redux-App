@@ -1,6 +1,6 @@
 This is an app based on Google news
 
-![G-News-IMG][src/g-news-app-img.jpg]
+<img src="src/g-news-app-img.jpg" />
 
 As user, one is able to create a profile, change their photo and sign in and sign out using JWT Auth going to a rails backend API
 
