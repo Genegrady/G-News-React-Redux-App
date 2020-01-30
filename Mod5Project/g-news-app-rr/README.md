@@ -17,6 +17,8 @@ A user can save their favorite articles, see all of their saved searches as well
 
 The articles come from the newsapi.org API
 
+Weather data is gathered from The NWS API
+
 This app uses the following node packages:
 
 1. react-live-clock
