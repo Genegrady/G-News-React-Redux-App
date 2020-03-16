@@ -8,16 +8,17 @@ import {useEffect, useState} from 'react'
 const  NewsList =(props)=> {
 
 const [state, setState] = useState(props)
-console.log(props) 
+// const {user} = props
+console.log(props.id) 
 
 useEffect(() => {
     setState(props);
   }, [props]);
 // const {articles} = state.articles
- let id = uuid
+ let uid = uuid
  const getArticles = () => {
      return state.articles.map(
-         article=><Article article={article} key={id} user_id={props.user_id} /> 
+         article=><Article article={article} key={uid} user_id={props.id} /> 
      )
      debugger
  }

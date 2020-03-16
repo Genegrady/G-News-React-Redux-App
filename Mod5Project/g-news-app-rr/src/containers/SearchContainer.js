@@ -58,12 +58,12 @@ export class SearchContainer extends Component {
     }
 
     fetchFavoriteArticles = async () => {
-        const url = USERS_URL+`/${this.props.id}/news`
+        const url = USERS_URL+`/${this.props.id}/`
         if(localStorage.token){const result = await axios(
             url,
         )
         this.setState({
-            articles: result.data
+            articles: result.data.news
         })}else{
             debugger
             swal("No User Detected", "Please Login", )
@@ -248,9 +248,9 @@ export class SearchContainer extends Component {
                 
             {this.state.articles.length === 0 ?
             <NewsList articles={this.props.articles}
-            user_id={this.props.user.id}/>:
+           {...this.props.user}/>:
             <NewsList articles ={this.props.news}
-            user_id={this.props.user.id} />
+           {...this.props.user} />
             }
             </div>
              
