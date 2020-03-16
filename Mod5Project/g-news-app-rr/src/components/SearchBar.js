@@ -7,7 +7,7 @@ import { BASE_URL } from '../redux/actions'
 import swal from 'sweetalert';
 
 export const SearchBar = (props) => {
-    const user  = useSelector(state =>state.login.user)
+    const user  = useSelector(state =>state.user)
     const dispatch = useDispatch();
     const [query, setQuery] = useState("")
     // const [url, setUrl] = useState("")
@@ -31,11 +31,15 @@ const postData = async () =>{
         name: query,
         user_id: `${props.user.id}`
       }
+  const userParams = {
+    
+  }
   if(query.length !== 0){
 
     const result =await Axios.post(
         url, params
     );setQueryRender(result.data)
+    
   }else{
     swal("Search Field is Empty", "Please Enter Something", "error")
   }
@@ -49,7 +53,7 @@ const postData = async () =>{
 //   }
   
 
-console.log(queryRender)
+console.log(props.search)
 // console.log(userState)
 //   const resetInputField = () => {
 //     setQuery("")
@@ -64,6 +68,8 @@ console.log(queryRender)
     e.preventDefault();
     // const { history } = props
     if(query !== null){props.search(query);
+
+    
     postData();
     setQuery("")}
     else{

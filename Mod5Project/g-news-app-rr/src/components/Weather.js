@@ -7,11 +7,11 @@ export const Weather = (props) => {
     return (
         <div>
             <Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Eastern'} className='clock'/>
-            <img className="weatherimg" src ={`https://developer.apple.com/design/human-interface-guidelines/watchos/images/icon-and-image-large-icon-weather_2x.png`}/>
-            <h1>
+            <img className="weatherimg" src ={`https://i.ya-webdesign.com/images/yahoo-weather-icons-png.png`}/>
+            <h1 className="weather-name">
                 {name}
             </h1>
-            <p>
+            <p className="forecast">
                 {detailedForecast}
             </p>
 

@@ -19,12 +19,12 @@ useEffect(() => {
   
 
   return (
-    <Router history={history}>
+    <Router >
       {
-      localStorage.token ? <NavLog/>:
+      localStorage.token && localStorage.token !== "undefined" ? <NavLog/>:
       <Nav/>
       }
-      <Routes history={history} {...props}/>
+      <Routes history={history} {...props}/> 
     </Router>
   );
 }

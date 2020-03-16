@@ -113,9 +113,9 @@ export class SearchContainer extends Component {
     //         searchQueries: result.data
     //     })
     // }
-    getSearchId =() => {
-        this.state.searchQueries.map(query=> query)
-    }
+    // getSearchId =() => {
+    //     this.state.searchQueries.map(query=> query)
+    // }
    
     
     
@@ -133,9 +133,7 @@ export class SearchContainer extends Component {
         if(prevState.articles !== this.state.articles){
             this.fetchSearches()
         }
-        else if(prevState.searchQueries !== this.state.searchQueries){
-            
-        }
+    
         // if(prevState.localStorage !== localStorage){
         //     this.fetchSearches()
         // }
@@ -165,23 +163,26 @@ export class SearchContainer extends Component {
             <Weather weather ={w}/>
         </li>)
     }
+
+   
+    
     
     
     
 
 
     render() {
-        // console.log(Date().getHours())
+        console.log(this.props.news)
         return (
             <Fragment>
             
             <SearchBar callSearchFunction={this.props.callSearchFunction}
             search={this.search}
-            user={this.props}/>
+            user={this.props.user}/>
             <OffCanvas
                 width={300}
                 transitionDuration={300}
-                effect={"parallax"}
+                effect={"overlay"}
                 isMenuOpened={this.state.isMenuOpened}
                 position={"left"}
                 backgroundColor={"light-grey"}
@@ -212,21 +213,22 @@ export class SearchContainer extends Component {
                    Close Menu
                </button>
             {/*  */}
-           <Profile user={this.props}/>
+           
+        <Profile {...this.props.user}/>
              <div className="sidebar">
                 <div className="favorite_articles"
                 onClick={this.handleHeadlineClick}>
-                    <h1>Top HeadLines</h1>
+                    <h3>Top HeadLines</h3>
                </div>
                 <div className="favorite_articles" 
                 onClick={this.fetchFavoriteArticles}>
-                    <h1>Favorite Articles</h1>
+                    <h3>Favorite Articles</h3>
                 </div>
                 <div
                 className="search_card_container">
                     
-                <h1 
-                >Saved Searches</h1>
+                <h3 
+                >Saved Searches</h3>
                 <ul>
                     
                 {this.sendQueriesToRenderSearch()}
@@ -245,8 +247,10 @@ export class SearchContainer extends Component {
             <div className="rightside">
                 
             {this.state.articles.length === 0 ?
-            <NewsList {...this.props}/>:
-            <NewsList articles ={this.state.articles} />
+            <NewsList articles={this.props.articles}
+            user_id={this.props.user.id}/>:
+            <NewsList articles ={this.props.news}
+            user_id={this.props.user.id} />
             }
             </div>
              
@@ -256,7 +260,7 @@ export class SearchContainer extends Component {
             <OffCanvas
                 width={450}
                 height={1000}
-                transitionDuration={300}
+                transitionDuration={100}
                 effect={"push"}
                 isMenuOpened={this.state.isMenuOpened}
                 position={"bottom"}

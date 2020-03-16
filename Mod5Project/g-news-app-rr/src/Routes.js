@@ -7,7 +7,8 @@ import Pages from './Pages'
 
 export const Routes = () => {
     return (
-        localStorage.token ?
+        localStorage.token === true ?
+
         <Switch>
             <Route path ="/" component = {Pages.Home}/>
         </Switch>

@@ -114,7 +114,7 @@ const loginUserToDB = userCredentials => dispatch => {
     .then(r => r.json())
     .then(data => {
       // debugger
-      // console.log(data)
+      console.log(data)
       dispatch(setUserAction(data.user));
       localStorage.setItem('token', data.token);
     });
@@ -126,14 +126,16 @@ const authUser = () => dispatch => {
   const config = {
     method: 'GET',
     headers: {
-      Authorization: `bearer ` + localStorage.token
+      'Authorization': `bearer ` +localStorage.token
     }
   };
-  fetch(AUTH_URL, config)
+  if(localStorage.token !== "undefined"){
+  return fetch(AUTH_URL, config)
     .then(r => r.json())
     .then(userInstance => {
       dispatch(setUserAction(userInstance));
     });
+  }
 };
 
 const logoutUser = () => dispatch => {

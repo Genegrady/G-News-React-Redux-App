@@ -21,7 +21,7 @@ const Article = (props) => {
  const  params = {
         author:author,
         urlToImage: urlToImage,
-        user_id: `${props.user_id}`,
+        user_id: props.user_id,
         publishedAt: publishedAt,
         description: description,
         url: url,

@@ -47,24 +47,22 @@ const fetchOriginalData = async  () => {
     
     
 
-    console.log(props.history)
+    console.log(props)
     const { query, name, } = props.query
     return (
-        <div className="row">
+    
             <div className="query-card"
             onClick={() => {
                 props.search(query)
             }
              }>
-            <h2>{name}</h2>
-                <button
+            <h3>{name}</h3>
+            <button
                 className="searchButtonSide" 
-                onClick={handleClick}>
-                    x
-                </button>
+                onClick={handleClick}></button>
             </div>
 
-        </div>
+        
     )
 }
 

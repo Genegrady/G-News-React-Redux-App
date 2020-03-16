@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux'
 import newsReducer from './newsReducer'
-import loginReducer from './loginReducer'
+import rootReducer from './rootReducer'
 import queryReducer from './queryReducer'
 
 export default combineReducers({
     news: newsReducer,
-    login: loginReducer,
+    login: rootReducer,
     query: queryReducer
 })

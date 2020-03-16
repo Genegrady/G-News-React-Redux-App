@@ -13,12 +13,12 @@ import { EVERYTHING_API_URL,QUERY, BASE_API_URL, BASE_URL, API_KEY } from '../re
 
 
 
-export const Home = (props) => {
+export const Home = () => {
 // const dispatch = useDispatch()
-const [state, setState] = useState({articles: []})
+const [articleState, setArticleState] = useState({articles: []})
 const [query, setQuery] = useState("")
-const user = useSelector(state => state.login.user);
-const [userState, setUserState] =useState({user: user})
+const user = useSelector(state => state.user);
+// const [userState, setUserState] =useState(user)
 // const POST_SEARCH_URL = BASE_URL+`users/${user}/searches`
 
 // const [search, setSearch] = useState('');
@@ -32,20 +32,25 @@ useEffect(() => {
         const result = await axios(
        url,
     );
-    setState(result.data)
+    setArticleState(result.data)
     }
     fetchData()
 }, [query])
 
-useEffect(() => {
-    setUserState(user)
-}, [user])
+// useEffect(() => {
+//     setUserState(user)
+// }, [user])
 
 
 
-console.log(query)
+console.log(user)
 
-
+    // const mapOutUser = () => {
+    //      return user.map(u =>{
+    //        return <SearchContainer className="search_container" user ={u.user} searches ={u.searches} news={u.news} {...state} {...query} />
+    //     })
+    // }
+    
 
  
 
@@ -56,10 +61,10 @@ console.log(query)
 //   }
 
 
-console.log(user)
+// console.log(user)
 // debugger
-console.log(userState)
-console.log(setQuery)
+// console.log(userState)
+// console.log(setQuery)
 // console.log(state.articles)
 // console.log(search())
 
@@ -70,9 +75,10 @@ console.log(setQuery)
             <Fragment>
                 {/* <Profile {...userState}{...state}/> */}
                 {/* <div>{text}</div> */}
-                < SearchContainer className="search_container" {...state } {...query} 
-                {...userState} 
+                < SearchContainer className="search_container" {...articleState} {...query} 
+                {...user} 
                 />
+                {/* {mapOutUser()} */}
                 {/* < NewsList className="news_container" {...state}/> */}
                
             </Fragment>

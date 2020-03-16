@@ -16,6 +16,9 @@ const LoginPage = props => {
     e.preventDefault();
     dispatch(userActions.loginUserToDB(loginForm));
     props.history.push('/');
+    alert("Login Successful!")
+    window.location.reload()
+   
     // debugger
   };
 
