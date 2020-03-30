@@ -44,7 +44,7 @@ export class SearchContainer extends Component {
   	};
 
     fetchSearches = async () => {
-        const url = BASE_URL+`/users/${this.props.id}/searches`
+        const url = USERS_URL+`/${this.props.user.id}/`
             
         const result = await axios(
             url,
@@ -52,16 +52,17 @@ export class SearchContainer extends Component {
 
         if(localStorage.token){
         this.setState({
-            searchQueries: result.data
+            searchQueries: result.data.searches
         })
         }
     }
 
     fetchFavoriteArticles = async () => {
-        const url = USERS_URL+`/${this.props.id}/`
+        const url = USERS_URL+`/${this.props.user.id}/`
         if(localStorage.token){const result = await axios(
             url,
         )
+        console.log(result.data)
         this.setState({
             articles: result.data.news
         })}else{
@@ -172,7 +173,7 @@ export class SearchContainer extends Component {
 
 
     render() {
-        console.log(this.props.news)
+        console.log(this.props)
         return (
             <Fragment>
             
@@ -249,7 +250,7 @@ export class SearchContainer extends Component {
             {this.state.articles.length === 0 ?
             <NewsList articles={this.props.articles}
            {...this.props.user}/>:
-            <NewsList articles ={this.props.news}
+            <NewsList articles ={this.state.articles}
            {...this.props.user} />
             }
             </div>
